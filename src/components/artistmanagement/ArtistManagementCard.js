@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import "./ArtistManagement.css"
 
 export const ArtistManagementCard = ({ artist }) => (
@@ -14,6 +15,6 @@ export const ArtistManagementCard = ({ artist }) => (
         <div>mark favorite</div>
         <button>Remove</button>
         <button>Up Next</button>
-        <button>Display</button>
+        <Link to={`/display/${artist.id}`}>Display</Link>
     </section>
 )

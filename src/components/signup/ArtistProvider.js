@@ -34,10 +34,15 @@ export const ArtistProvider = (props) => {
           .then(getArtists)
       }
 
+      const getArtistById = (id) => {
+          return fetch(`http://localhost:8088/artists/${id}`)
+          .then(res => res.json())
+      }
+
       return (
         <ArtistContext.Provider value={{
-            artists, getArtists, addArtist, updateArtist
-            // , getArtistById, removeArtist
+            artists, getArtists, addArtist, updateArtist, getArtistById
+            // , removeArtist
         }}>
             {props.children}
         </ArtistContext.Provider>
