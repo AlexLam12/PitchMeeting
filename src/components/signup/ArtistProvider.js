@@ -6,7 +6,7 @@ export const ArtistProvider = (props) => {
     const [ artists, setArtists ] = useState([])
 
     const getArtists = () => {
-        return fetch("http://localhost:8088/artists?_embed=song")
+        return fetch("http://localhost:8088/artists")
         .then(res => res.json())
         .then(setArtists)
     }
@@ -20,6 +20,7 @@ export const ArtistProvider = (props) => {
             body: JSON.stringify(artist)
         })
         .then(response => response.json())
+        .then(getArtists)
     }
 
     const updateArtist = artist => {

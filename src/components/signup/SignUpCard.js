@@ -6,6 +6,11 @@ export const SignUpCard = ({ artist }) => (
         <h3 className="artist__name">
             {artist.name}
         </h3>
+        <div className="artist__email">{artist.email}</div>
         <div className="artist__instagram">{artist.instagram}</div>
+        <div className="artist__song">{artist.song}</div>
+        <div className="artist__genre">{artist.genre}</div>
+        <div className="artist__instrument">{artist.instrument}</div>
+        <button>edit</button>
     </section>
 )
