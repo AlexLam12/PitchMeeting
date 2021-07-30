@@ -11,6 +11,8 @@ export const ArtistProvider = (props) => {
         .then(setArtists)
     }
 
+    
+
     const addArtist = artist => {
         return fetch("http://localhost:8088/artists", {
             method: "POST",
@@ -39,10 +41,14 @@ export const ArtistProvider = (props) => {
           .then(res => res.json())
       }
 
+
       return (
         <ArtistContext.Provider value={{
-            artists, getArtists, addArtist, updateArtist, getArtistById
-            // , removeArtist
+            artists, 
+            getArtists, 
+            addArtist, 
+            updateArtist, 
+            getArtistById 
         }}>
             {props.children}
         </ArtistContext.Provider>

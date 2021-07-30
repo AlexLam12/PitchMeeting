@@ -15,9 +15,9 @@ export const ArtistManagementList = () => {
         <> 
         <h2>Artist Management</h2>
         <div className="artists">
-            {artists.map(artist => {
+        {artists.map(artist => { if(artist.date > Date.now()-86400000){
                 return <ArtistManagementCard key={artist.id} artist={artist} />
-            })}
+            }})}
         </div>
         </>
     )
