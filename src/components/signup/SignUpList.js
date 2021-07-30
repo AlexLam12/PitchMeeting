@@ -13,9 +13,9 @@ export const SignUpList = () => {
     return(
         <> 
         <div className="artists">
-            {artists.map(artist => {
+            {artists.map(artist => { if(artist.date > Date.now()-86400000){
                 return <SignUpCard key={artist.id} artist={artist} />
-            })}
+            }})}
         </div>
         </>
     )
