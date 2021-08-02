@@ -1,11 +1,18 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { ArtistContext } from "../signup/ArtistProvider"
 import "./ArtistManagement.css"
 
-export const ArtistManagementCard = ({ artist }) => {
-    const { updateArtist } = useContext(ArtistContext)
 
+export const ArtistManagementCard = ({ artist }) => {
+    const { updateArtist, getLikes, getArtists } = useContext(ArtistContext)
+    const [ isChecked, setIsChecked ] = useState(false)
+    
+    
+    useEffect(() => {
+        getArtists()
+        .then(getLikes())
+    }, [])
     
     const handleRemove = () => {
         updateArtist({
@@ -18,8 +25,9 @@ export const ArtistManagementCard = ({ artist }) => {
             genre: artist.genre,
             date: 0
         })
-    
     }
+
+
 
     return(
     <section className="artist">
@@ -31,9 +39,14 @@ export const ArtistManagementCard = ({ artist }) => {
         <div className="artist__song">{artist.song}</div>
         <div className="artist__genre">{artist.genre}</div>
         <div className="artist__instrument">{artist.instrument}</div>
-        <div>mark favorite</div>
-        <button onClick={handleRemove}>Remove</button>
-        <button>Up Next</button>
+        <button onClick={handleRemove}>
+            Remove
+            </button>
+        <div className="artist__upnext" >
+            <button onClick={() => {setIsChecked(!isChecked)}} className={isChecked ? "ToggleTrue" : "ToggleFalse" }>
+            Next
+            </button>
+            </div>
         <Link to={`/display/${artist.id}`}>Display</Link>
     </section>
 )}
