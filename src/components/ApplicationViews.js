@@ -22,6 +22,9 @@ export const ApplicationViews = () => {
                     <Route path="/signup">
                         <SignUpList />
                     </Route>
+                    {/* <Route path="">
+                        <SignUpForm />
+                    </Route> */}
                     <Route path="/artistmanagement">
                         <ArtistManagementList />
                     </Route>

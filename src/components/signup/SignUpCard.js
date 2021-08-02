@@ -11,6 +11,6 @@ export const SignUpCard = ({ artist }) => (
         <div className="artist__song">{artist.song}</div>
         <div className="artist__genre">{artist.genre}</div>
         <div className="artist__instrument">{artist.instrument}</div>
-        <button>edit</button>
+        {/* <button>edit</button> */}
     </section>
 )

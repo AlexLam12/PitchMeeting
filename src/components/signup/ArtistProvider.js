@@ -4,6 +4,7 @@ export const ArtistContext = createContext()
 
 export const ArtistProvider = (props) => {
     const [ artists, setArtists ] = useState([])
+    const [ likes, setLikes ] = useState([])
 
     const getArtists = () => {
         return fetch("http://localhost:8088/artists")
@@ -11,7 +12,11 @@ export const ArtistProvider = (props) => {
         .then(setArtists)
     }
 
-    
+    const getLikes = () => {
+      return fetch("http://localhost:8088/likes")
+      .then(res => res.json())
+      .then(setLikes)
+  }
 
     const addArtist = artist => {
         return fetch("http://localhost:8088/artists", {
@@ -48,7 +53,9 @@ export const ArtistProvider = (props) => {
             getArtists, 
             addArtist, 
             updateArtist, 
-            getArtistById 
+            getArtistById,
+            likes,
+            getLikes 
         }}>
             {props.children}
         </ArtistContext.Provider>

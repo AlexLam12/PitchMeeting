@@ -36,7 +36,6 @@ export const SignUpForm = () => {
     const handleClickSignUp = () =>{
         const foundArtist = artists.find(artist => artist.name === artistFormData.name)
         if (foundArtist){
-            // debugger
             updateArtist({
                 id: foundArtist.id,
                 name: artistFormData.name,
