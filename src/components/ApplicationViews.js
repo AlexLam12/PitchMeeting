@@ -16,15 +16,15 @@ export const ApplicationViews = () => {
 
             <ArtistProvider>
                
-                    <Route path="/signup">
+                    <Route exact path="/signup">
+                        <SignUpForm />
+                    </Route>                    
+                    <Route path="/signup/edit/:artistId(\d+)">
                         <SignUpForm />
                     </Route>
                     <Route path="/signup">
                         <SignUpList />
                     </Route>
-                    {/* <Route path="">
-                        <SignUpForm />
-                    </Route> */}
                     <Route path="/artistmanagement">
                         <ArtistManagementList />
                     </Route>

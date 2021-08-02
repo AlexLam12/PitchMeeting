@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react"
 import { ArtistContext } from "./ArtistProvider"
-// import { SongContext } from "./SongProvider"
+import { useHistory, useParams } from 'react-router-dom'
+
 
 export const SignUpForm = () => {
-    const { addArtist, updateArtist, getArtists, artists } = useContext(ArtistContext)
-    // const { addSong } = useContext(SongContext)
+    const { addArtist, updateArtist, getArtists, artists, getArtistById } = useContext(ArtistContext)
+    const {artistId} = useParams()
+    const history = useHistory()
 
   
 
@@ -18,11 +20,16 @@ export const SignUpForm = () => {
         date: ""
 
     });
-    // const [song, setSongs] = useState({
-    //     song:"",
-    //     genre:"",
-    //     artistId: 0
-    // })
+
+    useEffect(() => {
+        if(artistId){
+            getArtistById(artistId)
+            .then(artistFormData => {
+                setArtistFormData(artistFormData)
+            })
+        }
+    })
+
     useEffect(() => {
         getArtists()
     }, [])
@@ -89,14 +96,6 @@ export const SignUpForm = () => {
                         className="input__name"
                         placeholder="Full Name"
                         onChange={handleControlledInputChange} />
-                        {/* <select className="input__name" >
-                            <option value="0">Full Name</option>
-                            {artists.map(a => (
-                                <option key={a.id} value={a.id}>
-                                    {a.name}
-                                </option>
-                            )) }
-                        </select> */}
                 </div>
             </fieldset>
             <fieldset>
@@ -153,6 +152,7 @@ export const SignUpForm = () => {
                 onClick={event => {
                     event.preventDefault()
                         handleClickSignUp()
+                        history.push(`/signup`)
                 }}>
                    SignUp 
                 </button>

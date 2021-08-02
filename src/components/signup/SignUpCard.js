@@ -1,7 +1,10 @@
 import React from "react"
 import "./SignUp.css"
+import { useHistory } from "react-router"
 
-export const SignUpCard = ({ artist }) => (
+export const SignUpCard = ({artist}) => {
+    const history = useHistory()
+    return(
     <section className="artist">
         <h3 className="artist__name">
             {artist.name}
@@ -11,6 +14,10 @@ export const SignUpCard = ({ artist }) => (
         <div className="artist__song">{artist.song}</div>
         <div className="artist__genre">{artist.genre}</div>
         <div className="artist__instrument">{artist.instrument}</div>
-        {/* <button>edit</button> */}
+        <button onClick={() => {
+        history.push(`/signup/edit/${artist.id}`)
+        }}
+        >edit</button>
     </section>
-)
+    )
+    }
