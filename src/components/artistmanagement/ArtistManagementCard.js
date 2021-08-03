@@ -1,18 +1,20 @@
 import React, { useContext, useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router"
 import { ArtistContext } from "../signup/ArtistProvider"
 import "./ArtistManagement.css"
 
 
 export const ArtistManagementCard = ({ artist }) => {
-    const { updateArtist, getLikes, getArtists } = useContext(ArtistContext)
+    const { updateArtist } = useContext(ArtistContext)
     const [ isChecked, setIsChecked ] = useState(false)
+    const [ isDisabled, setIsDisabled ] = useState(false)
     
     
-    useEffect(() => {
-        getArtists()
-        .then(getLikes())
-    }, [])
+
+    const handleDisplay = () => {
+        window.open(`/display/${artist.id}`)
+        setIsDisabled(!isDisabled)
+    }
     
     const handleRemove = () => {
         updateArtist({
@@ -44,9 +46,13 @@ export const ArtistManagementCard = ({ artist }) => {
             </button>
         <div className="artist__upnext" >
             <button onClick={() => {setIsChecked(!isChecked)}} className={isChecked ? "ToggleTrue" : "ToggleFalse" }>
-            Next
+            Next Up
             </button>
             </div>
-        <Link to={`/display/${artist.id}`}>Display</Link>
+            <button className="btn btn-display"
+                disabled={isDisabled}
+                onClick={handleDisplay}>
+                Display
+          </button>
     </section>
 )}

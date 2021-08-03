@@ -5,6 +5,7 @@ export const ArtistContext = createContext()
 export const ArtistProvider = (props) => {
     const [ artists, setArtists ] = useState([])
     const [ likes, setLikes ] = useState([])
+    
 
     const getArtists = () => {
         return fetch("http://localhost:8088/artists")
