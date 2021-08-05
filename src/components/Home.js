@@ -1,23 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
+import "./Home.css"
 
-export const Home = () => (
-    <>
-        <h2>
-            <Link className="nav-link" to="/display">
-                Display Screen
+export const Home = () => {
+const history = useHistory()
+
+const handleClickLogin = (event) => {
+   
+
+}
+
+ return(
+    <div>   
+        <h3>
+        Management:
+        </h3>
+        <h3>
+        <Link className="nav-link" 
+                to="/login" >
+            Login 
             </Link>
-        </h2>
-        <h2>
-        <Link className="nav-link" to="/signup">
-            Sign Up Page
-        </Link>
-            </h2>
-        <h2>
-        <Link className="nav-link" to="/artistmanagement">
-            Artist Management
-        </Link>
-        </h2>
-
-    </>
-)
+        </h3>   
+    </div>
+    )
+}

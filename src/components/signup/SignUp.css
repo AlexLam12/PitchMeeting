@@ -12,3 +12,24 @@
       border: 1px solid goldenrod;
   }
   
+.signUpForm {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.signUpForm__title {
+    width: 100%;
+}
+
+fieldset {
+    text-align: center;
+    width: 100%;
+    border: none;
+}
+
+h1 {
+    flex-wrap: wrap;
+    text-align: center;
+    margin-left: 100px;
+}

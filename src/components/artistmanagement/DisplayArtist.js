@@ -19,7 +19,9 @@ export const DisplayArtist = () => {
 
     return(
         <section className="displayArtist">
-            <h3 className="diplayArtist__name">{artist.name}</h3>
+            <div className="displayArtist__name">{artist.name}</div>
+            <h3 className="diplayArtist__song">{artist.song}</h3>
+            <div className="displayArtist__instagram">{artist.instagram}</div>
         </section>
     )
 }

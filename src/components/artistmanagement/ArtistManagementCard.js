@@ -41,14 +41,14 @@ export const ArtistManagementCard = ({ artist }) => {
         <div className="artist__song">{artist.song}</div>
         <div className="artist__genre">{artist.genre}</div>
         <div className="artist__instrument">{artist.instrument}</div>
-        <button onClick={handleRemove}>
+        <button className="btn" onClick={handleRemove}>
             Remove
             </button>
-        <div className="artist__upnext" >
+        <div className="btn artist__upnext" >
             <button onClick={() => {setIsChecked(!isChecked)}} className={isChecked ? "ToggleTrue" : "ToggleFalse" }>
             Next Up
             </button>
-            </div>
+        </div>
             <button className="btn btn-display"
                 disabled={isDisabled}
                 onClick={handleDisplay}>
