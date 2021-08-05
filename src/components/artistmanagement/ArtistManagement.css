@@ -5,3 +5,14 @@
 .ToggleFalse {
     background-color: seashell;
 }
+
+h1 {
+    text-align: center;
+}
+
+.displayArtist {
+    display: flex;
+    text-align: center;
+    font-size: 30px;
+    justify-content: center;
+}

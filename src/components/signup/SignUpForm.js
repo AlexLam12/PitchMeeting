@@ -28,7 +28,7 @@ export const SignUpForm = () => {
                 setArtistFormData(artistFormData)
             })
         }
-    })
+    }, [])
 
     useEffect(() => {
         getArtists()
@@ -87,7 +87,7 @@ export const SignUpForm = () => {
 
     return(
         <form className="signUpForm">
-            <h2 className="signUpForm__title">Sign Up</h2>
+            <h1 className="signUpForm__title">Sign Up</h1>
             <fieldset>
                 <div className="form-group">
                     <input type="text" 
