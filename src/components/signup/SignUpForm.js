@@ -87,7 +87,7 @@ export const SignUpForm = () => {
 
     return(
         <form className="signUpForm">
-            <h1 className="signUpForm__title">Sign Up</h1>
+            <h1 className="signUpForm__title">Sign In For Tonight's Show</h1>
             <fieldset>
                 <div className="form-group">
                     <input type="text" 
@@ -95,7 +95,8 @@ export const SignUpForm = () => {
                         value={artistFormData.name}
                         className="input__name"
                         placeholder="Full Name"
-                        onChange={handleControlledInputChange} />
+                        onChange={handleControlledInputChange}
+                         />
                 </div>
             </fieldset>
             <fieldset>
@@ -145,17 +146,20 @@ export const SignUpForm = () => {
                         value={artistFormData.instrument} 
                         className="input__instrument"
                         placeholder="Instrument"
-                        onChange={handleControlledInputChange} />
+                        onChange={handleControlledInputChange}
+                        />
                 </div>
             </fieldset>
+            <fieldset>
             <button className="btn__signUp"
                 onClick={event => {
                     event.preventDefault()
                         handleClickSignUp()
                         history.push(`/signup`)
                 }}>
-                   SignUp 
+                   Submit 
                 </button>
+            </fieldset>
         </form>
     )
 }

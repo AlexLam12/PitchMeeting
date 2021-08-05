@@ -6,6 +6,7 @@ import { SignUpForm } from "./signup/SignUpForm"
 import { SignUpList } from "./signup/SignUpList"
 import { ArtistManagementList } from "./artistmanagement/ArtistManagementList"
 import { DisplayArtist } from "./artistmanagement/DisplayArtist"
+import { Login } from "./auth/Login"
 
 export const ApplicationViews = () => {
     return (
@@ -15,14 +16,16 @@ export const ApplicationViews = () => {
             </Route>
 
             <ArtistProvider>
-               
-                    <Route exact path="/signup">
+                <Route exact path="/login">
+                        <Login />
+                    </Route>
+                    <Route exact path="/">
                         <SignUpForm />
                     </Route>                    
-                    <Route path="/signup/edit/:artistId(\d+)">
+                    <Route path="/edit/:artistId(\d+)">
                         <SignUpForm />
                     </Route>
-                    <Route path="/signup">
+                    <Route exact path="/">
                         <SignUpList />
                     </Route>
                     <Route path="/artistmanagement">
@@ -31,6 +34,7 @@ export const ApplicationViews = () => {
                     <Route path="/display/:artistId(\d+)">
                         <DisplayArtist />
                     </Route>
+                   
                 
             </ArtistProvider>
         </>
