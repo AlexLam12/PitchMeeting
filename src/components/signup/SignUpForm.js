@@ -155,7 +155,7 @@ export const SignUpForm = () => {
                 onClick={event => {
                     event.preventDefault()
                         handleClickSignUp()
-                        history.push(`/signup`)
+                        history.push(`/`)
                 }}>
                    Submit 
                 </button>

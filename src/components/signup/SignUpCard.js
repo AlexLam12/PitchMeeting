@@ -15,7 +15,7 @@ export const SignUpCard = ({artist}) => {
         <div className="artist__genre">{artist.genre}</div>
         <div className="artist__instrument">{artist.instrument}</div>
         <button onClick={() => {
-        history.push(`/signup/edit/${artist.id}`)
+        history.push(`/edit/${artist.id}`)
         }}
         >edit</button>
     </section>
