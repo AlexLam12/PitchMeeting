@@ -5,7 +5,13 @@ export const ArtistContext = createContext()
 export const ArtistProvider = (props) => {
     const [ artists, setArtists ] = useState([])
     const [ likes, setLikes ] = useState([])
+    const [ users, setUsers ] = useState([])
     
+    const getUsers = () => {
+        return fetch("http://localhost:8088/users")
+        .then(res => res.json())
+        .then(setUsers)
+    }
 
     const getArtists = () => {
         return fetch("http://localhost:8088/artists")
@@ -14,7 +20,7 @@ export const ArtistProvider = (props) => {
     }
 
     const getLikes = () => {
-      return fetch("http://localhost:8088/likes")
+      return fetch("http://localhost:8088/likes?_expand=user&_expand=artist")
       .then(res => res.json())
       .then(setLikes)
   }
@@ -47,16 +53,37 @@ export const ArtistProvider = (props) => {
           .then(res => res.json())
       }
 
+      const deleteLike = likeId => {
+        return fetch(`http://localhost:8088/likes/${likeId}`, {
+            method: "DELETE"
+      })
+        .then(getLikes)}
 
+        const addLike = (like) => {
+            return fetch("http://localhost:8088/likes", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(like)
+            })
+            .then(response => response.json())
+            .then(getLikes)
+        }
+        
       return (
         <ArtistContext.Provider value={{
-            artists, 
-            getArtists, 
+            artists,
+            users, 
+            getArtists,
+            getUsers, 
             addArtist, 
             updateArtist, 
             getArtistById,
             likes,
-            getLikes 
+            getLikes,
+            deleteLike,
+            addLike 
         }}>
             {props.children}
         </ArtistContext.Provider>

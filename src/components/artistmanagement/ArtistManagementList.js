@@ -5,10 +5,12 @@ import "./ArtistManagement.css"
 import { ArtistManagementCard } from "./ArtistManagementCard"
 
 export const ArtistManagementList = () => {
-    const { artists, getArtists } = useContext(ArtistContext)
+    const { artists, getArtists, getLikes, getUsers } = useContext(ArtistContext)
 
     useEffect(() => {
         getArtists()
+        getLikes()
+        getUsers()
     }, [])
 
     return(
