@@ -1,5 +1,5 @@
 .ToggleTrue {
-    background-color: rgb(45, 167, 29);
+    background-color: rgb(46, 189, 27);
 }
 
 
@@ -32,3 +32,10 @@ h1 {
     font-family: Verdana, sans-serif;
     font-weight: 100;
 }
+
+.artist-like {
+    filter: brightness(0) invert(1);
+    size: 10px;
+}
+
+

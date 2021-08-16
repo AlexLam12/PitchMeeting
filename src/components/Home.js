@@ -12,7 +12,7 @@ const handleLogout = (event) => {
 }
 
  return(
-    <div>   
+    <aside>   
         <h3>
         Management:
             </h3>
@@ -30,6 +30,6 @@ const handleLogout = (event) => {
                 </Link>
             </h3>
            }
-    </div>
+    </aside>
     )
 }

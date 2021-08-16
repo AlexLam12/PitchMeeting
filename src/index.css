@@ -5,6 +5,9 @@ body {
     sans-serif, 'Times New Roman', Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  background-image: url(./bgimage/backgroundPP.jpg) ;
+  color: rgb(229, 243, 243);
 }
 
 code {

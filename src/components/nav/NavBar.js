@@ -6,11 +6,11 @@ export const NavBar = (prop) => {
   return (
     <nav className="navbar">
 
-      <ul className="nav nav-pills nav-fill">
+      <div className="nav">
           <Link className="nav-link" to="/">
-            <img src="../images/pitchmeeting4A.1.jpg" alt="logo" />
+            <img src="./images/pitchmeeting3A.png" alt="logo" width="250" height="250" />
             </Link>
-      </ul>
+      </div>
     </nav>
   )
 }

@@ -49,9 +49,9 @@ export const ArtistManagementCard = ({ artist, like }) => {
     
 
     const conditionalImage = () => {if (foundLike !== undefined) {
-        return <a onClick = {() => removeLike(foundLike)} className="button artist-unlike">like <img className="likeIcon"src="./images/Check-removebg-preview.png"/> </a>
+        return <a onClick = {() => removeLike(foundLike)} className="button artist-unlike"><img className="likeIcon"src="./images/Check-removebg-preview.png" height="40" width="40"/> </a>
     } else {
-        return <a onClick = {saveLike} className="button artist-like">unlike <img className="unlikeIcon"src="./images/Uncheck-removebg-preview.png"/> </a>
+        return <a onClick = {saveLike} className="button artist-like"><img className="unlikeIcon"src="./images/Uncheck-removebg-preview.png" height="40" width="40"/> </a>
     }}
 
     return(
@@ -64,7 +64,7 @@ export const ArtistManagementCard = ({ artist, like }) => {
         <div className="artist__song">{artist.song}</div>
         <div className="artist__genre">{artist.genre}</div>
         <div className="artist__instrument">{artist.instrument}</div>
-        <div>
+        <div className="artist__fave">
             {conditionalImage()}
         </div>
 
