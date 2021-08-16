@@ -87,7 +87,7 @@ export const SignUpForm = () => {
 
     return(
         <form className="signUpForm">
-            <h1 className="signUpForm__title">Sign In For Tonight's Show</h1>
+            <h1 className="signUpForm__title">Sign Up For Tonight's Show</h1>
             <fieldset>
                 <div className="form-group">
                     <input type="text" 

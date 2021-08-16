@@ -1,5 +1,11 @@
 # Pitchmeeting-project 
 
+This App is an artist managment tool that makes it easy to manage a artist interested in performing at an open mic night. The idea originated from a friend who started an open mic night for artists to perform their original music with a live band. The functionallity of this App is meant to be simple and easy to use.
+
+This App was built with the ReactJS library and styled with CSS.
+
+This application is built for my Front-End/Client-Side Capstone project for Nashville Software School.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -7,14 +13,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Pitch Meeting App Setup:
 
 1. Use terminal to clone this repository
-2. cd into the directory it creates
+2. `cd` into the directory it creates
+```
 git clone git@github.com:AlexLam12/pitchmeeting
 cd pitchmeeting/
-3. Run npm install and wait for all dependencies to be installed.
-4. Run npm start to verify that installation was successful.
-5. Create an api directory outside of the project directory.
-6. Create a database.json file.
+```
+3. Run `npm install` and wait for all dependencies to be installed.
+4. Run `npm start` to verify that installation was successful.
+5. Create an `api` directory outside of the project directory.
+6. Create a `database.json` file.
 7. Copy and Paste the following data into the json file:
+
+```json
 {
   "users": [
     {
@@ -53,15 +63,22 @@ cd pitchmeeting/
     }
   ]
 }
-8. Run json-server -p 8088 -w database.json from the api directory.
+```
+8. Run `json-server -p 8088 -w database.json` from the api directory.
 
 ## Project ERD (Entity Relationship Diagram):
+
 Link: https://dbdiagram.io/d/60f629e34ed9be1c05d3a275
 
+![ERD](./public/images/pitchERD.PNG "ERD for PitchProject")
+
 ## Project Wireframe:
+
 Link: https://miro.com/app/board/o9J_l5ob3qY=/?fromRedirect=1
 
-In the project directory, you can run:
+![Wireframe](./public/images/pitchWireFrame.PNG "Wireframe for PitchProject")
+
+## In the project directory, you can run:
 
 ### `npm start`
 
