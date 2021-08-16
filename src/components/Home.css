@@ -1,7 +1,16 @@
 h3 {
     text-align: right;
-    margin-left: 30;
+    margin-right: 10px;
 }
 h2 {
     text-align: center;
+}
+aside {
+    display: flex;
+    margin-right: 30px;
+    margin-left: 86%;
+}
+
+a {
+    color: ivory;
 }

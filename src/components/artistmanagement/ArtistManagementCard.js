@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useParams } from "react-router"
+import { useHistory } from "react-router"
 import { ArtistContext } from "../signup/ArtistProvider"
 import "./ArtistManagement.css"
 
 
-export const ArtistManagementCard = ({ artist }) => {
-    const { updateArtist } = useContext(ArtistContext)
+export const ArtistManagementCard = ({ artist, like }) => {
+    const { likes, updateArtist, addLike, deleteLike } = useContext(ArtistContext)
     const [ isChecked, setIsChecked ] = useState(false)
     const [ isDisabled, setIsDisabled ] = useState(false)
+    const [ likeImage, setLikeImage ] = useState("")
+    const history = useHistory()
     
     
 
@@ -29,7 +31,28 @@ export const ArtistManagementCard = ({ artist }) => {
         })
     }
 
+    const saveLike = () => {
+    const newLike = {
+        userId: parseInt(sessionStorage.getItem("pitch_user")),
+        artistId: artist.id
+    }
+    addLike(newLike)
+    }
 
+    const foundLike = likes.find(like => {
+    return like.userId === parseInt(sessionStorage.getItem("pitch_user")) && artist.id === like.artistId
+    })
+
+    const removeLike = (foundLike) => {
+    deleteLike(foundLike.id)
+    }
+    
+
+    const conditionalImage = () => {if (foundLike !== undefined) {
+        return <a onClick = {() => removeLike(foundLike)} className="button artist-unlike"><img className="likeIcon"src="./images/Check-removebg-preview.png" height="40" width="40"/> </a>
+    } else {
+        return <a onClick = {saveLike} className="button artist-like"><img className="unlikeIcon"src="./images/Uncheck-removebg-preview.png" height="40" width="40"/> </a>
+    }}
 
     return(
     <section className="artist">
@@ -41,6 +64,10 @@ export const ArtistManagementCard = ({ artist }) => {
         <div className="artist__song">{artist.song}</div>
         <div className="artist__genre">{artist.genre}</div>
         <div className="artist__instrument">{artist.instrument}</div>
+        <div className="artist__fave">
+            {conditionalImage()}
+        </div>
+
         <button className="btn" onClick={handleRemove}>
             Remove
             </button>

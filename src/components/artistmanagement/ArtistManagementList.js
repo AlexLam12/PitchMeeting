@@ -5,20 +5,22 @@ import "./ArtistManagement.css"
 import { ArtistManagementCard } from "./ArtistManagementCard"
 
 export const ArtistManagementList = () => {
-    const { artists, getArtists } = useContext(ArtistContext)
+    const { artists, getArtists, getLikes, getUsers } = useContext(ArtistContext)
 
     useEffect(() => {
         getArtists()
+        getLikes()
+        getUsers()
     }, [])
 
     return(
         <> 
         <h1>Artist Management</h1>
-        <div className="artists">
+        <article className="artists">
         {artists.map(artist => { if(artist.date > Date.now()-86400000){
                 return <ArtistManagementCard key={artist.id} artist={artist} />
             }})}
-        </div>
+        </article>
         </>
     )
 }
