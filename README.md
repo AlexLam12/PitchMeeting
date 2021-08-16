@@ -1,8 +1,65 @@
+# Pitchmeeting-project 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Pitch Meeting App Setup:
+
+1. Use terminal to clone this repository
+2. cd into the directory it creates
+git clone git@github.com:AlexLam12/pitchmeeting
+cd pitchmeeting/
+3. Run npm install and wait for all dependencies to be installed.
+4. Run npm start to verify that installation was successful.
+5. Create an api directory outside of the project directory.
+6. Create a database.json file.
+7. Copy and Paste the following data into the json file:
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Alex",
+      "email": "Alex@gmail.com"
+    }
+  ],
+  "artists": [
+    {
+      "id": 1,
+      "name": "Black Pumas",
+      "email": "BP@gmail.com",
+      "instagram": "@BP",
+      "instrument": "all",
+      "song": "Colors",
+      "genre": "indie",
+      "date": 16288714146367
+    },
+    {
+      "id": 4,
+      "name": "Cherub",
+      "email": "Cher@gmail.com",
+      "instagram": "@cherub",
+      "instrument": "none",
+      "song": "Doses & Minmosas",
+      "genre": "Hip-hop",
+      "date": 16288714146367
+    }
+  ],
+  "likes": [
+    {
+      "id": 1,
+      "userId": 1,
+      "artistId": 4
+    }
+  ]
+}
+8. Run json-server -p 8088 -w database.json from the api directory.
+
+## Project ERD (Entity Relationship Diagram):
+Link: https://dbdiagram.io/d/60f629e34ed9be1c05d3a275
+
+## Project Wireframe:
+Link: https://miro.com/app/board/o9J_l5ob3qY=/?fromRedirect=1
 
 In the project directory, you can run:
 
